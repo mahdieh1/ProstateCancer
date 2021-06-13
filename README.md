@@ -1,2 +1,82 @@
 # ProstateCancer
 A comprehensive investigation of genomic variants with likely functional impact in Prostate Cancer
+
+---
+
+## Table of Contents
+
+- [Description](#description)
+- [How To Use](#how-to-use)
+- [Required Programs](#required-programs)
+- [Author Info](#author-info)
+
+---
+
+### Description
+An overview of the pipeline used in this study is provided in Figure 1. Our pipeline utilized Prostate cancer related GWAS SNPs from GWAS Catalog [REF], somatic point mutations and copy number variations from ICGC consortia [13]. We then applied two different strategies that show in Supplementary figure S1 to detect hotspot regions from somatic mutation and copy number variation. These genomic variants (hotspot somatic mutation, CNVRs, and SNP) are then investigated to know the exact position of these genomic variants in the human genome. In the next step, our method integrates Hi-C data with enhancer mark (H3k27ac) to detect variants that are more likely to be regulatory variants. Finally, whole-genome sequencing of prostate cell lines can be used to approve the last genomic variants and report a list of functional variants.
+
+---
+
+## How To Use
+
+**1. Identification of Hotspot somatic mutation**
+
+The procedure for detection of Hotspot somatic mutation is as follows:
+
+
+ ## Step1.1- Window Analysis (Script )
+**Input file**
+
+**Mutations:**
+
+Mutation files contain all somatic mutations in the study in text format. text file should be tab delimited with the following 6 columns:
+ 1. Chromosome
+ 2. Start position (1-based)
+ 3. End position (1-based)
+ 4. Reference allele
+ 5. Alternate allele
+ 6. Sample ID
+
+Example text file:
+| Chr | start | End | Ref | Alt | ID |
+| --- | ----- | --- | --- | --- | -- | 
+| 1 | 94358820 | 94358820	| G | G |
+
+**Output file:**
+**Output generated in Step 1:**
+| Chr | start | End | Ref | Alt | ID |
+| --- | ----- | --- | --- | --- | -- | 
+| 1 | 94358820 | 94358820	| G | G |
+
+## Step1.2- Select Significant Window (script)
+
+ 
+
+
+
+---
+
+## Required Programs
+
+The SNATCNV pipeline requires the following dependencies:
+2.1) python version
+MATLAB software (>2012)
+2.2) R version
+R (>2.2.1)
+RColorBrewer and ggplot2 (>2.2.1) packages
+
+---
+
+## Author Info
+
+In case of queries, please email: mahdieh.labani@gmail.com
+
+### Reference
+```
+Please consider citing the follow paper when you use this code.
+  Title={},
+  Authors={}
+}
+```
+
+
