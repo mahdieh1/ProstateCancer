@@ -93,3 +93,4 @@ for i in range(1,23):
 for i in A: 
     df = final_df2[final_df2[5] == str(i)]
     df.to_csv('final_result'+i+ '.csv')
+    
