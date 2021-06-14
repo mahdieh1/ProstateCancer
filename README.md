@@ -40,17 +40,25 @@ Mutation files contain all somatic mutations in the study in text format. text f
 Example text file:
 | Chr | start | End | Ref | Alt | ID |
 | --- | ----- | --- | --- | --- | -- | 
-| 1 | 94358820 | 94358820	| G | G |
+| 13 | 109318342 | 109318342	| G | A | SA328537 |
 
 **Output file:**
 **Output generated in Step 1:**
-| Chr | start | End | Ref | Alt | ID |
-| --- | ----- | --- | --- | --- | -- | 
-| 1 | 94358820 | 94358820	| G | G |
+| Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
+| --- | ----- | --- | --- | --- | -- | ------------ | ------- |
+| 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
 ## Step1.2- Select Significant Window (script)
+**Input file**
+ Example input file:
+| Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
+| --- | ----- | --- | --- | --- | -- | ------------ | ------- |
+| 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
- 
+**Output generated in Step 2:**
+| Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample | P-value |
+| --- | ----- | --- | --- | --- | -- | ------------ | ------- | ------- |
+| 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 | 0.1 |
 
 
 
