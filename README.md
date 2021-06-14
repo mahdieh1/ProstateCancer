@@ -21,10 +21,6 @@ An overview of the pipeline used in this study is provided in Figure 1. Our pipe
 
 **1. Identification of Hotspot somatic mutation**
 
-The procedure for detection of Hotspot somatic mutation is as follows:
-
-
- ## Step1.1- Window Analysis (Script )
 **Input file**
 
 **Mutations:**
@@ -43,23 +39,17 @@ Example text file:
 | 13 | 109318342 | 109318342	| G | A | SA328537 |
 
 **Output file:**
-**Output generated in Step 1:**
+**Output files generated in Step 1:**
+For each chromosome, two CSV file in the below format are generated:
+
 | Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
 | --- | ----- | --- | --- | --- | -- | ------------ | ------- |
 | 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
-## Step1.2- Select Significant Window (script)
-**Input file**
- Example input file:
-| Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
-| --- | ----- | --- | --- | --- | -- | ------------ | ------- |
-| 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
-**Output generated in Step 2:**
 | Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample | P-value |
 | --- | ----- | --- | --- | --- | -- | ------------ | ------- | ------- |
 | 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 | 0.1 |
-
 
 
 ---
