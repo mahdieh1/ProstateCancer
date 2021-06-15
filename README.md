@@ -1,5 +1,4 @@
-# ProstateCancer
-A comprehensive investigation of genomic variants with likely functional impact in Prostate Cancer
+# A comprehensive investigation of genomic variants with likely functional impact in Prostate Cancer
 
 ---
 
@@ -13,17 +12,19 @@ A comprehensive investigation of genomic variants with likely functional impact 
 ---
 
 ### Description
-An overview of the pipeline used in this study is provided in Figure 1. Our pipeline utilized Prostate cancer related GWAS SNPs from GWAS Catalog [REF], somatic point mutations and copy number variations from ICGC consortia [13]. We then applied two different strategies that show in Supplementary figure S1 to detect hotspot regions from somatic mutation and copy number variation. These genomic variants (hotspot somatic mutation, CNVRs, and SNP) are then investigated to know the exact position of these genomic variants in the human genome. In the next step, our method integrates Hi-C data with enhancer mark (H3k27ac) to detect variants that are more likely to be regulatory variants. Finally, whole-genome sequencing of prostate cell lines can be used to approve the last genomic variants and report a list of functional variants.
+Our pipeline utilized Prostate cancer related GWAS SNPs from GWAS Catalog [REF], somatic point mutations and copy number variations from ICGC consortia [13]. We then applied two different strategies that show in Supplementary figure S1 to detect hotspot regions from somatic mutation and copy number variation. These genomic variants (hotspot somatic mutation, CNVRs, and SNP) are then investigated to know the exact position of these genomic variants in the human genome. In the next step, our method integrates Hi-C data with enhancer mark (H3k27ac) to detect variants that are more likely to be regulatory variants. Finally, whole-genome sequencing of prostate cell lines can be used to approve the last genomic variants and report a list of functional variants.
 
 ---
 
 ## How To Use
 
-**1. Identification of Hotspot somatic mutation**
+**Step 1: Identification of Hotspot regions** 
 
-**Input file**
+**A. Hotspot somatic mutation:**
 
-**Mutations:**
+**Input file:**
+
+*Mutations:*
 
 Mutation files contain all somatic mutations in the study in text format. text file should be tab delimited with the following 6 columns:
  1. Chromosome
@@ -38,8 +39,8 @@ Example text file:
 | --- | ----- | --- | --- | --- | -- | 
 | 13 | 109318342 | 109318342	| G | A | SA328537 |
 
-**Output file:**
-**Output files generated in Step 1:**
+**Output files:**
+
 For each chromosome, two CSV file in the below format are generated:
 
 | Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
@@ -47,10 +48,27 @@ For each chromosome, two CSV file in the below format are generated:
 | 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
 
-| Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample | P-value |
+| Chr | Start | End | Ref | Alt | ID | WindowNumber | #Sample | P-value |
 | --- | ----- | --- | --- | --- | -- | ------------ | ------- | ------- |
 | 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 | 0.1 |
 
+Furthermore, our pipeline generates two CSV files merging the information of all chromosomes.  
+
+**B. Copy number variation region:**
+**Input file:**
+*significant cnvrs:*
+| Chr | Start | End | 
+| --- | ----- | --- | 
+| 1 | 6742281 |	6742903	|
+
+*
+| Chr | #sample | 
+| --- | ----- | 
+| 1 | 6742281 |	
+
+| Chr | Start | End | Chr | Start | End | Sample-ID | 
+| --- | ----- | --- | --- | ----- | --- | --------- |
+| 1 | 6742281 |	6742903	|1	1	3652763	7562825	SP112877
 
 ---
 
