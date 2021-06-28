@@ -6,7 +6,6 @@
 
 - [Description](#description)
 - [How To Use](#how-to-use)
-- [Required Programs](#required-programs)
 - [Author Info](#author-info)
 
 ---
@@ -72,14 +71,7 @@ Furthermore, our pipeline generates two CSV files merging the information of all
 
 ---
 
-## Required Programs
 
-The SNATCNV pipeline requires the following dependencies:
-2.1) python version
-MATLAB software (>2012)
-2.2) R version
-R (>2.2.1)
-RColorBrewer and ggplot2 (>2.2.1) packages
 
 ---
 
