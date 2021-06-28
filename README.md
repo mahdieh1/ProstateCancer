@@ -92,7 +92,10 @@ Selected cnvrs:
 | chr1:16543346-16577163 | 21 | 16543346 | 1 |	225.86 | 0 |
  
 ---
-
+**Step 2: Determining Functional variants** 
+2.1.WGS analysis
+2.2.H3k27ac analysis
+2.3. Hi-c analysis 
 
 
 
