@@ -19,26 +19,26 @@ Our pipeline utilized Prostate cancer related GWAS SNPs from GWAS Catalog [REF],
 
 **Step 1: Identification of Hotspot regions** 
 
-**A. Hotspot somatic mutation:**
+**A. Hotspot somatic mutation(script Window-analysis):**
 
-**Input file:**
+#### Input file: ####
 
-*Mutations:*
+1. Somatic Mutations:
 
 Mutation files contain all somatic mutations in the study in text format. text file should be tab delimited with the following 6 columns:
- 1. Chromosome
- 2. Start position (1-based)
- 3. End position (1-based)
- 4. Reference allele
- 5. Alternate allele
- 6. Sample ID
+      1. Chr: Chromosome information of Somatic mutation
+      2. Start: starting position of Somatic mutation
+      3. End: Ending position of Somatic mutation
+      4. Ref: Reference allele
+      5. Alt: Alternate allele
+      6. ID: Sample ID
 
 Example text file:
 | Chr | start | End | Ref | Alt | ID |
 | --- | ----- | --- | --- | --- | -- | 
 | 13 | 109318342 | 109318342	| G | A | SA328537 |
 
-**Output files:**
+#### Output files: ####
 
 For each chromosome, two CSV file in the below format are generated:
 
@@ -53,27 +53,43 @@ For each chromosome, two CSV file in the below format are generated:
 
 Furthermore, our pipeline generates two CSV files merging the information of all chromosomes.  
 
+#### Setting argument: ####
+
+length_window: 21
+
+   can be set by other window length such as 9,50,5000bp
+   
 **B. Copy number variation region:**
-**Input file:**
-*significant cnvrs:*
+
+#### Input file: ####
+
+In order to process the CNV dataset, our pipleine requires two files as following: 
+
+1. significant cnvrs:
+
 | Chr | Start | End | 
 | --- | ----- | --- | 
 | 1 | 6742281 |	6742903	|
 
-*
-| Chr | #sample | 
-| --- | ----- | 
-| 1 | 6742281 |	
+2. Number: contains the number of samples in each cnvrs
+
+| Chr | #Sample | Start | End | 
+| --- | ------- | ----- | --- | 
+| 1 | 15 | 6742281 | 6742903 |	
+
+3. intersect: list of interscted cnvrs with cnvs 
 
 | Chr | Start | End | Chr | Start | End | Sample-ID | 
 | --- | ----- | --- | --- | ----- | --- | --------- |
-| 1 | 6742281 |	6742903	|1	1	3652763	7562825	SP112877
+| 1 | 6742281 |	6742903	| 1 |	3652763 |	7562825 |	SP112877 |
+
+#### Setting argument: ####
 
 ---
 
 
 
----
+
 
 ## Author Info
 
