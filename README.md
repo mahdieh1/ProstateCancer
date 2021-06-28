@@ -61,7 +61,7 @@ length_window: 21
    
 **B. Copy number variation region:**
 
-#### Input file: ####
+#### Input files: ####
 
 In order to process the CNV dataset, our pipleine requires two files as following: 
 
@@ -69,7 +69,7 @@ In order to process the CNV dataset, our pipleine requires two files as followin
 
 | Chr | Start | End | 
 | --- | ----- | --- | 
-| 1 | 6742281 |	6742903	|
+| 1 | 6742281 | 6742903 |
 
 2. Number: contains the number of samples in each cnvrs
 
@@ -81,10 +81,16 @@ In order to process the CNV dataset, our pipleine requires two files as followin
 
 | Chr | Start | End | Chr | Start | End | Sample-ID | 
 | --- | ----- | --- | --- | ----- | --- | --------- |
-| 1 | 6742281 |	6742903	| 1 |	3652763 |	7562825 |	SP112877 |
+| 1 | 6742281 | 6742903	| 1 |	3652763 | 7562825 | SP112877 |
 
-#### Setting argument: ####
+#### Output file: ####
 
+Selected cnvrs:
+
+| ID | #sample | start | Cluster-NO | Score | result(0/1) | 
+| -- | ------- | ----- | ---------- | ----- | --- | 
+| chr1:16543346-16577163 | 21 | 16543346 | 1 |	225.86 | 0 |
+ 
 ---
 
 
