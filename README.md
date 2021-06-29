@@ -93,9 +93,13 @@ Selected cnvrs:
  
 ---
 **Step 2: Determining Functional variants** 
-2.1.WGS analysis
-2.2.H3k27ac analysis
-2.3. Hi-c analysis 
+
+2.1. Whole genome sequencing data processing
+
+2.2. Identifying H3K27ac ChIP-seq peak regions
+
+2.3. Identification of enhancer-promoter interactions from Hi-C data
+
 
 
 
