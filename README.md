@@ -35,20 +35,20 @@ Mutation files contain all somatic mutations in the study in text format. text f
 
 Example text file:
 | Chr | start | End | Ref | Alt | ID |
-| --- | ----- | --- | --- | --- | -- | 
-| 13 | 109318342 | 109318342	| G | A | SA328537 |
+| :---: | :---: | :---: | :---: | :---: | :---: | 
+| 13 | 109318342 | 109318342 | G | A | SA328537 |
 
 #### Output files: ####
 
 For each chromosome, two CSV file in the below format are generated:
 
 | Chr | start | End | Ref | Alt | ID | WindowNumber | #Sample |
-| --- | ----- | --- | --- | --- | -- | ------------ | ------- |
-| 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 13  | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 |
 
 
 | Chr | Start | End | Ref | Alt | ID | WindowNumber | #Sample | P-value |
-| --- | ----- | --- | --- | --- | -- | ------------ | ------- | ------- |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 13 | 109318342 | 109318342	| G | G | SA328537 | 5205635 | 1 | 0.1 |
 
 Furthermore, our pipeline generates two CSV files merging the information of all chromosomes.  
@@ -68,19 +68,19 @@ In order to process the CNV dataset, our pipleine requires two files as followin
 1. significant cnvrs:
 
 | Chr | Start | End | 
-| --- | ----- | --- | 
+| :---: | :---: | :---: | 
 | 1 | 6742281 | 6742903 |
 
 2. Number: contains the number of samples in each cnvrs
 
 | Chr | #Sample | Start | End | 
-| --- | ------- | ----- | --- | 
+| :---: | :---: | :---: | :---: | 
 | 1 | 15 | 6742281 | 6742903 |	
 
 3. intersect: list of interscted cnvrs with cnvs 
 
 | Chr | Start | End | Chr | Start | End | Sample-ID | 
-| --- | ----- | --- | --- | ----- | --- | --------- |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | 6742281 | 6742903	| 1 |	3652763 | 7562825 | SP112877 |
 
 #### Output file: ####
@@ -88,20 +88,20 @@ In order to process the CNV dataset, our pipleine requires two files as followin
 Selected cnvrs:
 
 | ID | #sample | start | Cluster-NO | Score | result(0/1) | 
-| -- | ------- | ----- | ---------- | ----- | --- | 
+| :---: | :---: | :---: | :---: | :---: | :---: | 
 | chr1:16543346-16577163 | 21 | 16543346 | 1 |	225.86 | 0 |
  
 ---
 **Step 2: Determining Functional variants** 
 
-2.1. Whole genome sequencing data processing
+2.1. Whole genome sequencing data processing (script WGS)
 
 #### Input files: ####
 
 Fastq files:
 
 | Line | Description |  
-| ---- | ----------- |
+| :---: | :---: |
 | 1 | Always begins with ‘@’ and then information about the read | 
 | 2 | The actual DNA sequence |
 | 3 | Always begins with a ‘+’ and sometimes the same info in line 1 |
@@ -110,20 +110,45 @@ Fastq files:
 #### Output file: ####
 
 1. SNP:
-2. 
+
 | Chr | Pos | ID | REF | ALT | QUAL | FILTER | INFO | FORMAT |
-| --- | --- | -- | --- | --- | ---- | ------ | ---- | ------ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | 16533 | . | C | T | 118 | PASS | DP=61;VDB=0.262654;SGB=-0.692352;RPB=0.965576;MQB=0.933072;MQSB=0.311291;BQB=0.541042;MQ0F=0.180328;ICB=1;HOB=0.5;AC=1;AN=2;DP4=16,20,16,5;MQ=21 |	GT:PL	0/1:151,0,243 |
 
-3. Indel:
+| column | info |  
+| :---: | :---: |
+| Chr | Chromosome information | 
+| Pos | position where the variation occurs |
+| REF | reference genotype |
+| ALT | sample genotype |
+| QUAL | Phred-scaled probability that the observed variant exists at this site |
+| FILTER | a . if no quality filters have been applied, PASS if a filter is passed |
+| INFO | lists in order the metrics presented in the final column |
 
-2.2. Identifying H3K27ac ChIP-seq peak regions
+2. Indel: 
 
-2.3. Identification of enhancer-promoter interactions from Hi-C data
+| Chr | Pos | ID | REF | ALT | QUAL | FILTER | INFO | FORMAT |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 6 | 13609052 | . | GAAA | GAA | 179 | . | INDEL;IDV=11;IMF=0.916667;DP=12;VDB=0.974316;SGB=-0.676189;MQSB=0.95494;MQ0F=0;AC=2;AN=2;DP4=0,1,7,4;MQ=60 | GT:PL	1/1:206,4,0 |
 
+2.2. Identifying H3K27ac ChIP-seq peak regions (Script Chip-seq)
+#### Input file: ####
 
+Fastq files for ChIP-seq peak regions:
 
+| Line | Description |  
+| :---: | :---: |
+| 1 | Always begins with ‘@’ and then information about the read | 
+| 2 | The actual DNA sequence |
+| 3 | Always begins with a ‘+’ and sometimes the same info in line 1 |
+| 4 | Has a string of characters which represent the quality scores; must have same number of characters as line 2 |
 
+#### Output file: ####
+
+H3k27ac file:
+| Chr | Strat | End | Score | 
+| :---: | :---: | :---: | :---: | 
+| 1 |	9750 | 10800 | 0089 |
 
 ## Author Info
 
