@@ -1,3 +1,9 @@
+#Quality control - Assessing quality using FastQC
+#Quality control - Trimming and/or filtering reads (if necessary)
+#Align reads to reference genome
+#Perform post-alignment clean-up
+#Variant calling
+
 set -e
 
 echo "Running FastQC ..."
