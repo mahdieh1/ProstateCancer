@@ -96,6 +96,27 @@ Selected cnvrs:
 
 2.1. Whole genome sequencing data processing
 
+#### Input files: ####
+
+Fastq files:
+
+| Line | Description |  
+| ---- | ----------- |
+| 1 | Always begins with ‘@’ and then information about the read | 
+| 2 | The actual DNA sequence |
+| 3 | Always begins with a ‘+’ and sometimes the same info in line 1 |
+| 4 | Has a string of characters which represent the quality scores; must have same number of characters as line 2 |
+
+#### Output file: ####
+
+1. SNP:
+2. 
+| Chr | Pos | ID | REF | ALT | QUAL | FILTER | INFO | FORMAT |
+| --- | --- | -- | --- | --- | ---- | ------ | ---- | ------ |
+| 1 | 16533 | . | C | T | 118 | PASS | DP=61;VDB=0.262654;SGB=-0.692352;RPB=0.965576;MQB=0.933072;MQSB=0.311291;BQB=0.541042;MQ0F=0.180328;ICB=1;HOB=0.5;AC=1;AN=2;DP4=16,20,16,5;MQ=21 |	GT:PL	0/1:151,0,243 |
+
+3. Indel:
+
 2.2. Identifying H3K27ac ChIP-seq peak regions
 
 2.3. Identification of enhancer-promoter interactions from Hi-C data
