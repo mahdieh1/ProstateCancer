@@ -1,4 +1,4 @@
-# A comprehensive investigation of genomic variants with likely functional impact in Prostate Cancer
+# A comprehensive investigation of genomic variants in Prostate Cancer reveals 30 regulatory variants with possible functional impact
 
 ---
 
